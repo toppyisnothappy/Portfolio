@@ -1,9 +1,22 @@
-namespace shortlist.Models
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JobShortage.Models // Changed namespace
 {
     public class PRMapping
     {
+        [Key]
         public int Id { get; set; }
         public string PRNumber { get; set; } // Example property
-        // Add other relevant properties here
-    }
+        public int CandidateId { get; set; }
+        [ForeignKey("CandidateId")]
+        public Candidate Candidate { get; set; } = null!;
+
+        public int PRId { get; set; }
+        [ForeignKey("PRId")]
+        public PR PR { get; set; } = null!;
+
+        // Other mapping specific properties can be added here
+
 }
