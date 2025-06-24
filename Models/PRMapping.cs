@@ -1,3 +1,4 @@
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,7 +8,7 @@ namespace JobShortage.Models // Changed namespace
     {
         [Key]
         public int Id { get; set; }
-
+        public string PRNumber { get; set; } // Example property
         public int CandidateId { get; set; }
         [ForeignKey("CandidateId")]
         public Candidate Candidate { get; set; } = null!;
@@ -17,5 +18,5 @@ namespace JobShortage.Models // Changed namespace
         public PR PR { get; set; } = null!;
 
         // Other mapping specific properties can be added here
-    }
+
 }
